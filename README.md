@@ -15,7 +15,7 @@ TypeScript: TypeScript is used to add static typing to JavaScript, enhancing cod
 Tailwind CSS: Tailwind CSS is utilized for styling, offering a utility-first approach and enabling rapid development without sacrificing flexibility and customization.
 Getting Started
 To run the portfolio locally, follow these steps:
-
+<br/>
 Clone this repository to your local machine.
 Navigate to the project directory.
 Install dependencies by running npm install.
