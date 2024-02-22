@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
+import { useState } from 'react'
 import { Header } from './atomic-components/molecule/header'
 
 import avatar from './assets/img.png'
 import { Separator } from './components/ui/separator'
 import { Button } from './components/ui/button'
-import { CaretRight } from '@phosphor-icons/react'
 import {
   Card,
   CardContent,
@@ -13,65 +13,101 @@ import {
   CardHeader,
   CardTitle,
 } from './components/ui/card'
+import { DownloadIcon } from '@radix-ui/react-icons'
 
 export function App() {
-  const dataToCard = [
+  const [dataToCard] = useState([
     {
-      name: 'Sistema de Gestão Escolar',
-      tecnologia: 'React, Redux, JavaScript, HTML, CSS',
-      description:
-        'Um sistema web para gestão de escolas, permitindo aos administradores gerenciar alunos, professores, disciplinas e notas.',
-    },
-    {
+      id: 1,
       name: 'Blog Pessoal',
       technology: 'Vue.js, JavaScript, HTML, CSS',
       description:
         'Um blog pessoal onde os usuários podem criar e compartilhar postagens sobre seus interesses e experiências.',
     },
     {
-      name: 'Loja Virtual',
-      technology: 'Angular, TypeScript, HTML, CSS',
+      id: 1,
+      name: 'Blog Pessoal',
+      technology: 'Vue.js, JavaScript, HTML, CSS',
       description:
-        'Uma aplicação de comércio eletrônico onde os usuários podem navegar por diferentes produtos, adicionar itens ao carrinho e realizar compras.',
+        'Um blog pessoal onde os usuários podem criar e compartilhar postagens sobre seus interesses e experiências.',
     },
     {
-      name: 'Loja Virtual',
-      technology: 'Angular, TypeScript, HTML, CSS',
+      id: 1,
+      name: 'Blog Pessoal',
+      technology: 'Vue.js, JavaScript, HTML, CSS',
       description:
-        'Uma aplicação de comércio eletrônico onde os usuários podem navegar por diferentes produtos, adicionar itens ao carrinho e realizar compras.',
+        'Um blog pessoal onde os usuários podem criar e compartilhar postagens sobre seus interesses e experiências.',
     },
     {
-      name: 'Loja Virtual',
-      technology: 'Angular, TypeScript, HTML, CSS',
+      id: 1,
+      name: 'Blog Pessoal',
+      technology: 'Vue.js, JavaScript, HTML, CSS',
       description:
-        'Uma aplicação de comércio eletrônico onde os usuários podem navegar por diferentes produtos, adicionar itens ao carrinho e realizar compras.',
+        'Um blog pessoal onde os usuários podem criar e compartilhar postagens sobre seus interesses e experiências.',
     },
     {
-      name: 'Loja Virtual',
-      technology: 'Angular, TypeScript, HTML, CSS',
+      id: 1,
+      name: 'Blog Pessoal',
+      technology: 'Vue.js, JavaScript, HTML, CSS',
       description:
-        'Uma aplicação de comércio eletrônico onde os usuários podem navegar por diferentes produtos, adicionar itens ao carrinho e realizar compras.',
+        'Um blog pessoal onde os usuários podem criar e compartilhar postagens sobre seus interesses e experiências.',
     },
-  ]
+    {
+      id: 1,
+      name: 'Blog Pessoal',
+      technology: 'Vue.js, JavaScript, HTML, CSS',
+      description:
+        'Um blog pessoal onde os usuários podem criar e compartilhar postagens sobre seus interesses e experiências.',
+    },
+    {
+      id: 1,
+      name: 'Blog Pessoal',
+      technology: 'Vue.js, JavaScript, HTML, CSS',
+      description:
+        'Um blog pessoal onde os usuários podem criar e compartilhar postagens sobre seus interesses e experiências.',
+    },
+    {
+      id: 1,
+      name: 'Blog Pessoal',
+      technology: 'Vue.js, JavaScript, HTML, CSS',
+      description:
+        'Um blog pessoal onde os usuários podem criar e compartilhar postagens sobre seus interesses e experiências.',
+    },
+  ])
 
   return (
-    <div className="min-h-screen space-y-2">
+    <div className="min-h-screen space-y-2 px-6">
       <Header />
 
       <Separator className="mb-4" />
 
-      <main className="flex flex-row items-center justify-around flex-wrap">
-        <div className="leading-relaxed">
-          <h1 className="font-black flex-nowrap text-2xl">Hello, I'm Guilherme, front-end developer</h1>
-          <p className=" w-[415px] ">Former digital-marketing specialist, seeking to aplly competent development skills with focus on collaboration, communication and passion</p>
-          <Button className="">Saiba mais<CaretRight/></Button>
-        </div>
-        <img className="size-72" src={avatar} alt="Avatar" />
-      </main>
-      <div className="flex flex-wrap justify-evenly gap-y-5">
-        {dataToCard.map((projeto, index) => (
-          <div key={index} className="">
-            <Card className="flex flex-col justify-center max-w-[380px] max-h-">
+      <main className="flex-col justify-center items-center">
+        <section className="flex flex-row items-center justify-around flex-wrap">
+          <div className="leading-relaxed">
+            <h1 className="font-black flex-nowrap text-2xl">
+              Hello, I'm Guilherme, front-end developer
+            </h1>
+            <p className="w-[415px]">
+              Former digital-marketing specialist, seeking to aplly competent
+              development skills with focus on collaboration, communication and
+              passion
+            </p>
+            <Button className="flex gap-3 font-bold my-4 hover:bg-slate-500  bg-slate-600">
+              <a href="cv.pdf" download="cv.pdf">
+                Download CV
+              </a>
+              <DownloadIcon />
+            </Button>
+          </div>
+          <div></div>
+          <img className="size-72" src={avatar} alt="Avatar" />
+        </section>
+        <section className="flex flex-1 flex-wrap gap-x-2 justify-center">
+          {dataToCard.map((projeto) => (
+            <Card
+              key={projeto.id}
+              className=" mt-6 max-w-[380px] max-h-[230px]"
+            >
               <CardHeader>
                 <CardTitle>{projeto.name}</CardTitle>
                 <CardDescription>{projeto.technology}</CardDescription>
@@ -83,9 +119,9 @@ export function App() {
                 <p>lorem ipsum dolor sit amet, con</p>
               </CardFooter>
             </Card>
-          </div>
-        ))}
-      </div>
+          ))}
+        </section>
+      </main>
     </div>
   )
 }
